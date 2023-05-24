@@ -14,7 +14,10 @@ function App() {
   return (
     <Stack>
       <Input onChange={handleUserQueryChange}></Input>
-      <AutocompleteBox userQuery={userQuery}></AutocompleteBox>
+      <Stack direction={'row'}>
+        <AutocompleteBox websiteName="Lowe's" userQuery={userQuery}></AutocompleteBox>
+        <AutocompleteBox websiteName="Home depot" userQuery={userQuery}></AutocompleteBox>
+      </Stack>
     </Stack>
   )
 }

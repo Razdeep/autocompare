@@ -1,13 +1,14 @@
-import { Button, Input } from "@mui/material";
+import { Box, Button, Input, Typography } from "@mui/material";
 import React, { useState } from "react"
 import SuggestionList from "./SuggestionList";
 import AutocompleteTerm from "../model/AutocompleteTerm";
 
 interface ParentProps {
+    websiteName: string
     userQuery: string
 }
 
-const AutocompleteBox: React.FC<ParentProps> = ({ userQuery }: any) => {
+const AutocompleteBox: React.FC<ParentProps> = ({ websiteName, userQuery }: any) => {
     const [autocompleteTerms, setAutocompleteTerms] = useState<AutocompleteTerm[]>([])
     
     const populateDummyData = () => {
@@ -21,12 +22,13 @@ const AutocompleteBox: React.FC<ParentProps> = ({ userQuery }: any) => {
         setAutocompleteTerms(newAutocompleteTerms)
     }
 
-    return <>
+    return <Box width={500}>
+        <Typography variant="h4">{websiteName}</Typography>
         <Button onClick={() => populateDummyData()}>Populate Dummy Data</Button>
         <br/>
         <Input value={userQuery}></Input>
         <SuggestionList data={autocompleteTerms}></SuggestionList>
-    </>
+    </Box>
 }
 
 export default AutocompleteBox;
