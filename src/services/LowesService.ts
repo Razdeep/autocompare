@@ -3,7 +3,7 @@ import AutocompleteTerm from "../model/AutocompleteTerm"
 const baseUrl = 'https://www.lowes.com'
 const path = 'LowesSearchServices/resources/autocomplete/v2_0'
 
-const fetchData = (searchTerm: string): AutocompleteTerm[] => {
+export const fetchData = (searchTerm: string): AutocompleteTerm[] => {
     const parameters = `searchTerm=${searchTerm}&maxTerms=8`
     const completeUrl = `${baseUrl}/${path}?${parameters}`
 
