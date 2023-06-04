@@ -6,10 +6,11 @@ import AutocompleteTerm from "../model/AutocompleteTerm";
 interface ParentProps {
     websiteName: string
     userQuery: string
+    autocompleteterms: AutocompleteTerm[]
 }
 
-const AutocompleteBox: React.FC<ParentProps> = ({ websiteName, userQuery }: any) => {
-    const [autocompleteTerms, setAutocompleteTerms] = useState<AutocompleteTerm[]>([])
+const AutocompleteBox: React.FC<ParentProps> = ({ websiteName, userQuery, autocompleteTerms }: any) => {
+    // const [autocompleteTerms, setAutocompleteTerms] = useState<AutocompleteTerm[]>([])
     
     const populateDummyData = () => {
         const data = ['refrigerator', 'dishwasher', 'lawn mower']
@@ -19,12 +20,12 @@ const AutocompleteBox: React.FC<ParentProps> = ({ websiteName, userQuery }: any)
             newAutocompleteTerm.name = item
             newAutocompleteTerms.push(newAutocompleteTerm)
         })
-        setAutocompleteTerms(newAutocompleteTerms)
+        // setAutocompleteTerms(newAutocompleteTerms)
     }
 
     return <Box width={500}>
         <Typography variant="h4">{websiteName}</Typography>
-        <Button onClick={() => populateDummyData()}>Populate Dummy Data</Button>
+        {/* <Button onClick={() => populateDummyData()}>Populate Dummy Data</Button> */}
         <br/>
         <Input value={userQuery}></Input>
         <SuggestionList data={autocompleteTerms}></SuggestionList>
