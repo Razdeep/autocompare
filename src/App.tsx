@@ -4,7 +4,8 @@ import AutocompleteBox from './components/AutocompleteBox'
 import { Input, Stack } from '@mui/material'
 import { fetchData as fetchDataFromHomeDepot } from './services/HomeDepotService'
 import { fetchData as fetchDataFromLowes } from './services/LowesService'
-import { fetchData as fetchDataFromAmazon } from './services/AmazonService'
+// import { fetchData as fetchDataFromAmazon } from './services/AmazonService'
+import { fetchData as fetchDataFromAutocompareApi } from './services/AutocompareApiService'
 import AutocompleteTerm from './model/AutocompleteTerm'
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
     setUserQuery(e.target.value)
     setAutocompleteTermsLowes(await fetchDataFromLowes(e.target.value))
     setAutocompleteTermsHomeDepot(await fetchDataFromHomeDepot(e.target.value))
-    setAutocompleteTermsAmazon(await fetchDataFromAmazon(e.target.value))
+    // setAutocompleteTermsAmazon(await fetchDataFromAmazon(e.target.value))
+    setAutocompleteTermsAmazon(await fetchDataFromAutocompareApi(e.target.value, 'amazon'))
   }
 
   return (
